@@ -1,18 +1,19 @@
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
+import ProjectDashboard from './pages/ProjectDashboard.jsx';
 
-function App() {
+export default function App() {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-blue-600">
-        Welcome to BMSAITools
-      </h1>
-      <p className="mt-4 text-gray-700">
-        Start by creating your first project.
-      </p>
+    <div className="min-h-screen">
+      {/* simple nav */}
+      <header className="p-4 bg-blue-600 text-white">
+        <Link to="/" className="font-semibold">BMSAITools</Link>
+      </header>
+
+      <Routes>
+        <Route path="/" element={<ProjectDashboard />} />
+        {/* future routes go here */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;
-
-
-
